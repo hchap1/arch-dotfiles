@@ -1,0 +1,25 @@
+window-rule {
+	clip-to-geometry true
+	draw-border-with-background false
+	geometry-corner-radius 12
+
+	focus-ring {
+		on
+		width 3
+		active-color "#cba6f7"
+		inactive-color "#181825"
+	}
+
+	background-effect {
+		blur true
+		xray false
+	}
+
+	opacity 0.9
+}
+
+debug {
+	honor-xdg-activation-with-invalid-serial
+}
+
+prefer-no-csd

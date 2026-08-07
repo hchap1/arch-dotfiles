@@ -1,0 +1,110 @@
+# Noctalia v5 shell config.
+# Real path: ~/.config/noctalia/config.toml (symlink this file there).
+# Only settings that differ from noctalia's defaults are listed; see
+# `noctalia config --example` (or /usr/share/doc/noctalia) for the full schema.
+
+# ── Location ──────────────────────────────────────────────────────────────────
+# Feeds weather / night light / theme auto mode.
+
+[location]
+auto_locate = false
+address     = "St Lucia, Brisbane, Australia"
+
+# ── Launcher ──────────────────────────────────────────────────────────────────
+# Carried over from the old v4 config. v5 dropped a few v4 options with no
+# equivalent here (icon style/background, pinned apps, custom launch prefix,
+# terminal command, settings-search toggle, screenshot annotation tool) —
+# omitted rather than guessed.
+
+[shell]
+clipboard_enabled    = true   # old config had this off; turning history on per request
+clipboard_auto_paste = "off"  # autoPasteClipboard = false
+
+[shell.launcher]
+categories    = true    # showCategories
+compact       = false   # density = "default"
+app_grid      = false   # viewMode = "list"
+sort_by_usage = true     # sortByMostUsed
+auto_paste    = "off"    # autoPasteClipboard = false
+
+[shell.launcher.providers.windows]
+prefix = "win"
+global = true            # enableWindowsSearch
+
+[shell.launcher.providers.session]
+prefix = "session"
+global = true            # enableSessionSearch
+
+[shell.panel]
+launcher_placement  = "floating"
+launcher_position   = "center"      # appLauncher.position
+clipboard_placement = "floating"
+clipboard_position  = "center"
+
+# ── Bar ───────────────────────────────────────────────────────────────────────
+# Single bar, only shown on the HDMI-A-1 monitor.
+
+[bar.main]
+position            = "top"
+enabled             = false
+thickness           = 30
+background_opacity  = 0.7
+radius              = 12
+concave_edge_corners = false
+margin_edge         = 5
+margin_ends         = 10
+reserve_space       = true
+
+start  = ["clock", "cpu", "gpu", "temp", "ram"]
+center = ["active_window", "group:media"]
+end    = ["volume", "network", "bluetooth", "notifications", "control-center"]
+
+# Fuses the media widget + audio visualizer into a single capsule — the closest
+# v5 equivalent of v4's combined MediaMini widget (no single merged widget type
+# exists anymore, so this groups the two into one pill instead).
+[[bar.main.capsule_group]]
+id      = "media"
+members = ["media", "audio_visualizer"]
+padding = 8
+
+[bar.main.monitor.hdmi]
+match   = "HDMI-A-1"
+enabled = true
+
+[widget.cpu]
+type            = "sysmon"
+stat            = "cpu_usage"
+highlight_color = "#cba6f7"
+
+[widget.gpu]
+type            = "sysmon"
+stat            = "gpu_usage"
+highlight_color = "#eba0ac"
+
+[widget.temp]
+type = "sysmon"
+stat = "cpu_temp"
+
+[widget.ram]
+type            = "sysmon"
+stat            = "ram_pct"
+highlight_color = "#94e2d5"
+
+[widget.active_window]
+min_length   = 300
+max_length   = 300
+title_scroll = "on_hover"
+
+[widget.media]
+hide_when_no_media = false   # hideWhenIdle = false
+artist_first        = false
+max_length           = 200
+
+[widget.audio_visualizer]
+width          = 200
+mirrored       = true
+centered       = true
+show_when_idle = true
+
+[widget.bluetooth]
+show_label = true
