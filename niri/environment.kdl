@@ -1,3 +1,4 @@
 environment {
     XDG_CONFIG_HOME "$HOME/.config"
+    DISPLAY ":0"
 }

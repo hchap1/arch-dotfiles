@@ -41,6 +41,18 @@ launcher_position   = "center"      # appLauncher.position
 clipboard_placement = "floating"
 clipboard_position  = "center"
 
+# ── Theme ─────────────────────────────────────────────────────────────────────
+# Force dark mode (already the noctalia default, set explicitly so it doesn't
+# depend on that) and sync it out to GTK apps via gsettings + the appearance
+# portal, which is what actually flips "system theme" for things like Vesktop.
+# Qt sync (qt5ct/qt6ct) is skipped — neither is installed, so it'd be a no-op.
+
+[theme]
+mode = "dark"
+
+[theme.templates]
+builtin_ids = ["gtk3", "gtk4"]
+
 # ── Bar ───────────────────────────────────────────────────────────────────────
 # Single bar, only shown on the HDMI-A-1 monitor.
 

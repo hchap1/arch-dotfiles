@@ -1,0 +1,6 @@
+# onedrive (abraunegg) client config.
+# Real path: ~/.config/onedrive/config (symlink this dir there).
+# Everything below is commented out — running on defaults (sync_dir = ~/OneDrive,
+# notifications on, business-shared-items sync off). Uncomment/add lines here
+# as needed; see `onedrive --help` or /usr/share/doc/onedrive-abraunegg/config
+# for the full list of options.
