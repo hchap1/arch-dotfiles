@@ -9,6 +9,10 @@ end
 # GPG
 set -gx GPG_TTY (tty)
 
+# SUDOEDIT
+set -gx EDITOR nvim
+set -gx VISUAL nvim
+
 # Aliases
 alias ls='eza --icons --all'
 alias ga='git add'
