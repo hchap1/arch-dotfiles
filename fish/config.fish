@@ -9,9 +9,6 @@ end
 # GPG
 set -gx GPG_TTY (tty)
 
-# XDG_CONFIG_PATH for ghostty config
-set -x XDG_CONFIG_HOME $HOME/.config
-
 # Aliases
 alias ls='eza --icons --all'
 alias ga='git add'

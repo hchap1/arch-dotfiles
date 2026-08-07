@@ -35,3 +35,6 @@
     br = branch
     ci = commit
     lg = log --oneline --graph --decorate --all
+    ga = add
+    gc = commit
+    gp = push
