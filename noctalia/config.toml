@@ -69,7 +69,7 @@ reserve_space       = true
 
 start  = ["clock", "cpu", "gpu", "temp", "ram"]
 center = ["active_window", "group:media"]
-end    = ["volume", "network", "bluetooth", "notifications", "control-center"]
+end    = ["volume", "network", "bluetooth", "hc/onedrive:status", "notifications", "control-center"]
 
 # Fuses the media widget + audio visualizer into a single capsule — the closest
 # v5 equivalent of v4's combined MediaMini widget (no single merged widget type
@@ -120,3 +120,11 @@ show_when_idle = true
 
 [widget.bluetooth]
 show_label = true
+
+# ── Plugins ───────────────────────────────────────────────────────────────────
+# hc/onedrive: local dev plugin at ~/.local/share/noctalia/plugins/onedrive-status
+# (not synced through the git sources below - discovered as the "local" plugin
+# source). Shows onedriver mount status; click for controls.
+
+[plugins]
+enabled = ["hc/onedrive"]
