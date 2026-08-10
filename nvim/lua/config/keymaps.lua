@@ -11,7 +11,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
     vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
     vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
     vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
-    vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
     vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
     vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
     vim.keymap.set("n", "<leader>f", function()
@@ -21,18 +20,19 @@ vim.api.nvim_create_autocmd("LspAttach", {
 })
 
 -- Diagnostics then docs
+vim.api.nvim_create_autocmd("WinEnter", {
+  callback = function()
+    local win = vim.api.nvim_get_current_win()
+    if vim.api.nvim_win_get_config(win).relative ~= "" then
+      vim.keymap.set("n", "<Esc>", "<cmd>close<CR>", { buffer = 0, silent = true })
+    end
+  end,
+})
+
 vim.keymap.set("n", "K", function()
   require("hover").open()
 end, opts)
 
 vim.keymap.set("n", "gK", function()
   require("hover").enter()
-end, opts)
-
-vim.keymap.set("n", "<C-p>", function()
-  require("hover").switch("previous")
-end, opts)
-
-vim.keymap.set("n", "<C-n>", function()
-  require("hover").switch("next")
 end, opts)
