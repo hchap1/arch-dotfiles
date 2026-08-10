@@ -19,3 +19,20 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end, opts)
   end,
 })
+
+-- Diagnostics then docs
+vim.keymap.set("n", "K", function()
+  require("hover").open()
+end, opts)
+
+vim.keymap.set("n", "gK", function()
+  require("hover").enter()
+end, opts)
+
+vim.keymap.set("n", "<C-p>", function()
+  require("hover").switch("previous")
+end, opts)
+
+vim.keymap.set("n", "<C-n>", function()
+  require("hover").switch("next")
+end, opts)
