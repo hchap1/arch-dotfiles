@@ -1,6 +1,9 @@
 -- Leader
 vim.g.mapleader = " "
 
+-- Clear search highlighting
+vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear search highlight", silent = true })
+
 -- LSP related keybinds
 vim.api.nvim_create_autocmd("LspAttach", {
   group = vim.api.nvim_create_augroup("UserLspConfig", {}),
@@ -39,7 +42,7 @@ end, opts)
 
 -- Buffer navigation
 vim.keymap.set("n", "<leader><Tab>", "<cmd>BufferLineCycleNext<CR>", { desc = "Next Buffer" })
-vim.keymap.set("n", "<leader><S-Tab>", "<cmd>BufferLineCyclePrev<CR>", { desc = "Previous Buffer" })
+vim.keymap.set("n", "<leader><BS>", "<cmd>BufferLineCyclePrev<CR>", { desc = "Previous Buffer" })
 vim.keymap.set("n", "<leader>d", "<cmd>bdelete<CR>", { desc = "Close Buffer" })
 
 -- Snacks pickers/explorer

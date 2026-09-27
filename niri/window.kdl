@@ -18,6 +18,14 @@ window-rule {
 	opacity 0.9
 }
 
+// Active window is fully opaque, except the terminal (Ghostty) which stays transparent
+window-rule {
+	match is-active=true
+	exclude app-id=r#"^com\.mitchellh\.ghostty$"#
+
+	opacity 1.0
+}
+
 debug {
 	honor-xdg-activation-with-invalid-serial
 }

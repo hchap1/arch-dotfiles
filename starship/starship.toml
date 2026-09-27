@@ -19,8 +19,8 @@ style = "lavender"
 [git_metrics]
 disabled = false
 format = "([+$added]($added_style))([ -$deleted]($deleted_style)) "
-added_style = "green"
-deleted_style = "red"
+added_style = "mauve"
+deleted_style = "flamingo"
 
 [character]
 success_symbol = "[❯](mauve bold) "
